@@ -12,8 +12,8 @@ import cn.iocoder.yudao.module.ai.service.write.AiWriteService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.annotation.Resource;
-import jakarta.validation.Valid;
+import javax.annotation.Resource;
+import javax.validation.Valid;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +22,7 @@ import reactor.core.publisher.Flux;
 import static cn.iocoder.yudao.framework.common.pojo.CommonResult.success;
 import static cn.iocoder.yudao.framework.security.core.util.SecurityFrameworkUtils.getLoginUserId;
 
-@Tag(name = "管理后台 - AI 写作")
+@Tag(name = "管理后台 - AI 写作翻译")
 @RestController
 @RequestMapping("/ai/write")
 public class AiWriteController {
@@ -37,7 +37,7 @@ public class AiWriteController {
         return writeService.generateWriteContent(generateReqVO, getLoginUserId());
     }
 
-    // ================ 写作管理 ================
+    // ================ 写作翻译管理 ================
 
     @DeleteMapping("/delete")
     @Operation(summary = "删除写作")
